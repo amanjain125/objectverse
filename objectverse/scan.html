@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scan & Roast | ObjectVerse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div id="app-wrapper">
+    <!-- Navigation Bar -->
+    <header class="site-header">
+      <div class="logo">ObjectVerse</div>
+      <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="scan.html">Scan</a>
+        <a href="demo.html">Demo</a>
+      </nav>
+    </header>
+
+    <main class="content-section standalone-page">
+      <section class="scan-page">
+        <h1>Scan & Roast</h1>
+        <p style="color: #aaa; margin-bottom: 30px;">Let the AI judge your physical world.</p>
+
+        <button class="neon-btn pulse-anim" onclick="startCamera()" id="start-btn">START SCANNER 📷</button>
+        
+        <div class="mode-selector" style="margin: 20px 0;">
+          <label for="roast-mode" style="color: #00ffff; font-size: 0.8rem; letter-spacing: 1px;">ROAST PERSONALITY:</label>
+          <select id="roast-mode" class="glass-select">
+            <option value="brutal">🔥 BRUTAL</option>
+            <option value="sarcastic">🙄 SARCASTIC</option>
+            <option value="genz">💀 GEN-Z / BRAINROT</option>
+            <option value="shakespearean">📜 SHAKESPEAREAN</option>
+          </select>
+        </div>
+
+        <div class="scanner-container" id="scanner-container">
+          <video id="video" autoplay playsinline></video>
+          <img id="captured-image" src="" alt="Captured Frame" style="display: none; width: 100%; height: 100%; object-fit: cover;">
+          <div class="scanner-overlay" id="scanner-overlay">
+              <span>SYSTEM OFFLINE</span>
+          </div>
+          <div class="scanner-laser" id="scanner-laser"></div>
+          <button class="snap-btn hide" id="snap-btn" onclick="snapAndAnalyze()">📸 SNAP & ANALYZE</button>
+        </div>
+
+        <div id="loading-view" style="display: none; margin-top: 20px;">
+          <div class="scanner-ring"></div>
+          <div class="loading-text">DECODING TARGET...</div>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="site-footer" style="margin-top: 50px;">
+        <div class="footer-content">
+          <div class="footer-logo">ObjectVerse</div>
+          <div class="footer-links">
+            <a href="#">Terms</a>
+            <a href="#">Privacy</a>
+            <a href="#">Contact</a>
+          </div>
+        </div>
+        <p>&copy; 2026 ObjectVerse</p>
+      </footer>
+    </main>
+  </div>
+
+  <!-- 🔹 IMMERSIVE FULL-SCREEN OVERLAY (Decoupled) -->
+  <div id="result-view" class="roast-box">
+    <div class="result-left">
+      <div class="avatar-aura"></div>
+      <div class="avatar-container">
+        <div class="sound-wave" id="sound-wave"></div>
+        <div id="avatar">🤖</div>
+      </div>
+    </div>
+    <div class="result-right">
+      <div id="detected-label" style="color: #00ffff; font-size: 1.2rem; letter-spacing: 5px; text-transform: uppercase;">OBJECT: SCANNING...</div>
+      <div id="message">Awaiting transmission...</div>
+      <button class="neon-btn hide" id="reset-btn" onclick="resetScanner()" style="margin-top: 30px; font-size: 1rem; padding: 15px 30px;">🔄 SCAN ANOTHER</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>

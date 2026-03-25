@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ObjectVerse | The Future of Scanning</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@300;500;700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="site-header">
+    <div class="logo">ObjectVerse</div>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="scan.html">Scan</a>
+      <a href="demo.html">Demo</a>
+    </nav>
+  </header>
+
+  <!-- Scroll Animation Section -->
+  <div class="scroll-container">
+    <div class="sticky-section">
+
+      <canvas id="hero-canvas"></canvas>
+
+      <!-- TEXT OVERLAY -->
+      <div class="ui-overlay" id="ui-titles">
+        <h1 class="hero-title">Your Objects Are Watching.</h1>
+        <p class="hero-tagline">Scroll to reveal what they think about you.</p>
+      </div>
+
+      <!-- SCROLL INDICATOR -->
+      <div class="scroll-indicator" id="scroll-indicator">
+        <div class="mouse"></div>
+        <p>Scroll to explore</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="content-section">
+
+    <!-- SCAN SECTION -->
+    <section class="action-section" id="action">
+      <div class="scan-container glass-card outline-glow fade-up">
+        <h2>Scan Your World</h2>
+        <p>Show an object. Let it speak back.</p>
+
+        <!-- IMPORTANT FIX: BUTTON NOW WORKS -->
+        <a href="scan.html" class="primary-btn neon-btn">
+          Start Scan 🚀
+        </a>
+
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-logo">ObjectVerse</div>
+        <div class="footer-links">
+          <a href="#">Terms</a>
+          <a href="#">Privacy</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+      <p>&copy; 2026 ObjectVerse</p>
+    </footer>
+
+  </main>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
