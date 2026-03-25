@@ -86,25 +86,25 @@ if (canvas) {
     }
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-
-    /* 🔹 FADE-UP SECTIONS */
-    const appearOptions = {
-        threshold: 0.15,
-        rootMargin: "0px 0px -50px 0px"
-    };
-
-    const appearOnScroll = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting) return;
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-        });
-    }, appearOptions);
-
-    document.querySelectorAll(".fade-up").forEach(el => {
-        appearOnScroll.observe(el);
-    });
 }
+
+/* 🔹 FADE-UP SECTIONS (GLOBAL) */
+const appearOptions = {
+    threshold: 0.15,
+    rootMargin: "0px 0px -50px 0px"
+};
+
+const appearOnScroll = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+    });
+}, appearOptions);
+
+document.querySelectorAll(".fade-up").forEach(el => {
+    appearOnScroll.observe(el);
+});
 
 /* ============================= */
 /* 🔹 SCAN PAGE (OLLAMA LLAVA) */
@@ -183,8 +183,11 @@ if (video) {
             const overlay = document.getElementById('scanner-overlay');
             if (overlay) overlay.style.display = 'none';
 
+            const snapBtn = document.getElementById('snap-btn');
+            if (snapBtn) snapBtn.classList.remove('hide');
+
             const container = document.getElementById('scanner-container');
-            if (container) container.classList.add('active');
+            if (container) container.classList.add('scanning-active');
 
             // Reset image/video state
             const capturedImg = document.getElementById('captured-image');
@@ -216,7 +219,7 @@ if (video) {
         setTimeout(() => container.style.boxShadow = "", 200);
 
         const loadingView = document.getElementById('loading-view');
-        const loadingText = loadingView ? loadingView.querySelector('.loading-text') : null;
+        const loadingText = loadingView ? loadingView.querySelector('.loading-text-premium') : null;
 
         // UI Loading
         avatar.innerHTML = "🤔";
@@ -293,7 +296,7 @@ if (video) {
                 loadingText.innerText = "ANALYZING IMAGE...";
             }
             console.log("🚀 Sending to Ollama AI...");
-            const response = await fetch('http://localhost:11434/api/generate', {
+            const response = await fetch('http://127.0.0.1:11434/api/generate', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -434,6 +437,12 @@ if (video) {
         // Reset Views
         const loadingView = document.getElementById('loading-view');
         if (loadingView) loadingView.style.display = 'none';
+
+        const overlay = document.getElementById('scanner-overlay');
+        if (overlay) overlay.style.display = 'flex';
+        
+        const container = document.getElementById('scanner-container');
+        if (container) container.classList.remove('scanning-active');
     }
 
     window.resetScanner = resetScanner;
