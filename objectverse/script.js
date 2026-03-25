@@ -146,7 +146,11 @@ if (video) {
         } else if (lowerObj.includes("laptop") || lowerObj.includes("computer")) {
             imgSrc = emotion === 'sad' ? "laptop/laptopsad-removebg-preview.png" : "laptop/laptophappy-removebg-preview.png";
         } else if (lowerObj.includes("phone") || lowerObj.includes("mobile")) {
-            imgSrc = emotion === 'sad' ? "phone/phonesad.png" : "phone/phonehappy_v2.png";
+            imgSrc = emotion === 'sad' ? "phone/phonesad-removebg-preview.png" : "phone/phonehappy_v2-removebg-preview.png";
+        } else if (lowerObj.includes("bottle") || lowerObj.includes("cup") || lowerObj.includes("glass")) {
+            imgSrc = emotion === 'sad' ? "bottle/bootlesadddd.png" : "bottle/ChatGPT Image Mar 25, 2026, 03_32_02 PM.png";
+        } else if (lowerObj.includes("cover") || lowerObj.includes("case")) {
+            imgSrc = emotion === 'sad' ? "phone cover/phone_case_sad-removebg-preview.png" : "phone cover/phone_caseeeeeeeeeehappy-removebg-preview (1).png";
         }
         
         if (imgSrc) {

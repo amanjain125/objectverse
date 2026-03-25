@@ -101,18 +101,21 @@ h4,
 .ui-overlay {
     position: absolute;
     top: 50%;
-    left: 10%;
+    left: 8%;
     transform: translateY(-50%);
     z-index: 10;
+    max-width: 45%; /* Keep text on the left side */
 }
 
 .hero-title {
-    font-size: clamp(3rem, 6vw, 6rem);
+    font-size: clamp(2.5rem, 5vw, 4.5rem); /* Slightly smaller to avoid crowding */
     background: linear-gradient(135deg, #fff, #b8a2e5);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: glowText 3s infinite alternate;
+    line-height: 1.1;
+    margin-bottom: 20px;
 }
 
 @keyframes glowText {
@@ -714,8 +717,82 @@ section {
 /* =========================================================================
    RESPONSIVE
    ========================================================================= */
-@media (max-width: 768px) {
+/* =========================================================================
+   RESPONSIVE
+   ========================================================================= */
+@media (max-width: 1024px) {
     .ui-overlay {
+        max-width: 60%;
         left: 5%;
+    }
+}
+
+@media (max-width: 768px) {
+    .site-header {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .site-nav {
+        gap: 15px;
+        font-size: 0.9rem;
+    }
+
+    .ui-overlay {
+        position: relative;
+        top: 40%;
+        left: 0;
+        transform: none;
+        max-width: 90%;
+        margin: 0 auto;
+        text-align: center;
+        padding: 0 20px;
+    }
+
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .hero-tagline {
+        font-size: 1rem;
+    }
+
+    /* Stack Roast Box on Mobile */
+    .roast-box {
+        flex-direction: column;
+        padding: 40px 20px;
+        overflow-y: auto;
+    }
+
+    .result-left {
+        height: auto;
+        min-height: 40vh;
+    }
+
+    .avatar-container {
+        transform: scale(0.4) translateY(0);
+    }
+
+    #avatar {
+        font-size: 10rem;
+    }
+    
+    #avatar img {
+        height: 40vh;
+    }
+
+    .result-right {
+        height: auto;
+        padding: 20px;
+        align-items: center;
+        text-align: center;
+        transform: translateY(30px);
+    }
+
+    #message {
+        font-size: 1.4rem;
+        text-align: center;
+        max-width: 100%;
     }
 }
